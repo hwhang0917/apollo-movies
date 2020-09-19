@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalStyle from "./Style/GlobalStyle";
+import GlobalStyle from "../Style/GlobalStyle";
 
 const App = () => (
   <>
