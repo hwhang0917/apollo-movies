@@ -1,4 +1,6 @@
 const path = require("path");
+const dotenv = require("dotenv");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -53,6 +55,13 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: appHtml }),
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify(
+          Object.assign({}, dotenv.config().parsed, {
+            NODE_ENV: env,
+          })
+        ),
+      }),
     ],
     devtool: env.production ? false : "inline-source-map",
     devServer: {
