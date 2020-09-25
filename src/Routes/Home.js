@@ -16,7 +16,7 @@ const GET_MOVIES = gql`
 
 const GirdContainer = styled.div`
   /* Grid box */
-  padding-top: 1em;
+  padding: 4em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
@@ -28,6 +28,7 @@ const GirdContainer = styled.div`
 
 export default () => {
   const { loading, error, data } = useQuery(GET_MOVIES);
+
   return loading ? (
     <Loading />
   ) : error ? (
