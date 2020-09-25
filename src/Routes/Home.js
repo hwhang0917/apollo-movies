@@ -1,21 +1,46 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import styled from "styled-components";
+import Loading from "../Components/Loading";
+import Poster from "../Components/Poster";
+import Error from "../Components/Error";
 
 const GET_MOVIES = gql`
   query {
     popularMovies {
       id
-      title
       poster_path
     }
   }
 `;
 
+const GirdContainer = styled.div`
+  /* Grid box */
+  padding-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  gap: 1em;
+
+  /* Color styles */
+  background: #f5f6fa;
+`;
+
 export default () => {
   const { loading, error, data } = useQuery(GET_MOVIES);
   return loading ? (
-    <h1>Loading ...</h1>
+    <Loading />
+  ) : error ? (
+    <Error message={error} />
   ) : (
-    data.popularMovies.map((m) => <h3 key={m.id}>{m.title}</h3>)
+    <GirdContainer>
+      {data.popularMovies.map(({ id, poster_path: posterPath }) => (
+        <Poster
+          key={id}
+          id={id}
+          posterPath={`https://image.tmdb.org/t/p/w500${posterPath}`}
+        />
+      ))}
+    </GirdContainer>
   );
 };
