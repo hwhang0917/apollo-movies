@@ -22,17 +22,20 @@ const StyledHeader = styled.header`
   user-select: none;
 `;
 
-const HeaderTitle = styled.h1`
+const Title = styled.h1`
   /* Font Style */
   font-size: 3em;
 `;
 
-const HeaderSubTitle = styled.p``;
+const Subtitle = styled.p`
+  /* Font Style */
+  font-size: 1em;
+`;
 
 const Header = () => (
   <StyledHeader>
-    <HeaderTitle>Apollo Movies 2020</HeaderTitle>
-    <HeaderSubTitle>ReactJS + GraphQL ♥ </HeaderSubTitle>
+    <Title>Apollo Movies 2020</Title>
+    <Subtitle>ReactJS + GraphQL ♥ </Subtitle>
   </StyledHeader>
 );
 
