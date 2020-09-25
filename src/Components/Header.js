@@ -24,7 +24,7 @@ const StyledHeader = styled.header`
 
 const HeaderTitle = styled.h1`
   /* Font Style */
-  font-size: 4em;
+  font-size: 3em;
 `;
 
 const HeaderSubTitle = styled.p``;
