@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
   /* Size */
-  height: 20vh;
+  height: 10vh;
 
   /* Gridbox */
   display: grid;
@@ -16,6 +16,7 @@ const StyledHeader = styled.header`
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   );
+  opacity: 0.89;
 
   /* Font colors */
   color: #fff;
